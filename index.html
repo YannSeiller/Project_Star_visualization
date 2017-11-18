@@ -14,30 +14,33 @@
 <body>
 <script src="http://d3js.org/d3.v4.min.js"> </script> 
 <script>
-  
-  var margin = {top: 60, right: 60, bottom: 60, left: 60},
-	width = 960 - margin.left - margin.right,
-	height = 500 - margin.top - margin.bottom;
-	
-	var svg = d3.select("body").append("svg")
-		.attr("width" , width + margin.left + margin.right)
-		.attr("height" , height + margin.top + margin.bottom)
-		.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-	
-	var x = d3.scaleLinear()
-				.domain([0,800])
-				.range([0,width]);
-  
-	var y = d3.scaleLinear()
-				.domain([-90,90])
-				.range([height,0]);
-  
-  var xAxis = d3.axisBottom(x)
 
-	var yAxis = d3.axisLeft(y)
+/* Définition des marges */
+var margin = {top: 60, right: 60, bottom: 60, left: 60},
+width = 960 - margin.left - margin.right,
+height = 500 - margin.top - margin.bottom;
+
+/* Définition du svg */	
+var svg = d3.select("body").append("svg")
+	.attr("width" , width + margin.left + margin.right)
+	.attr("height" , height + margin.top + margin.bottom)
+	/* g element is used to group SVG shapes together */
+	.append("g")
+	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var x = d3.scaleLinear()
+			.domain([0,800])
+			.range([0,width]);
   
-  var color = d3.scaleOrdinal(d3.schemeCategory10);
+var y = d3.scaleLinear()
+			.domain([-90,90])
+			.range([height,0]);
+  
+var xAxis = d3.axisBottom(x)
+
+var yAxis = d3.axisLeft(y)
+  
+var color = d3.scaleOrdinal(d3.schemeCategory10);
 	
   svg.append("g")
 		.attr("class", "x axis label")
